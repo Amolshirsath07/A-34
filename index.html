@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Assignment 34</title>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" class="order-input" id="order-input" placeholder="Enter item name">
+        <div class="btn-container">
+            <button class="btn" class="action-btn" onclick="addItem()">
+                <img src="./add.png" alt="" class="action-btn-icon">
+                Add
+            </button>
+
+            <button class="btn" class="action-btn" onclick="removeItem()">
+                <img src="./delete.png" alt="" class="action-btn-icon">
+                Remove
+            </button>
+        </div>
+
+
+        <hr class="hr">
+        <h2 class="text-center">Items List</h2>
+
+        <div id="orderContainer" class="orderContainer">
+        </div>
+    </div>
+
+    <script>
+        const groceryList = [];
+        function loadItems() {
+            const orderList = document.getElementById('orderContainer');
+            orderList.innerHTML = "";
+            for (let i = 0; i < groceryList.length; i++) {
+                orderContainer.innerHTML += `<p class='order-card'> ${i + 1}) ${groceryList[i]} </p>`;
+            }
+        }
+        loadItems()
+        const orderInput = document.getElementById('order-input');
+        function addItem() {
+            groceryList.push(orderInput.value);
+            orderInput.value = "";
+            loadItems();
+        }
+
+        function removeItem() {
+            const orderIndex = groceryList.indexOf(orderInput.value);
+            orderIndex.value = "";
+            groceryList.splice(orderIndex, 1);
+            loadItems();
+        }
+    </script>
+</body>
+
+</html>
